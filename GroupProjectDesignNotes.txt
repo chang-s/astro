@@ -1,0 +1,63 @@
+Class Designs
+
+Critter
+	enum class SpaceType{INVALID, EMPTY, ANT, DBUG};
+	enum class DirMove{UP, RIGHT, DOWN, LEFT, NO_MOVE}
+
+	constants for the array of space Types
+		UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3
+
+	variables
+		spaceType type
+		int timeSteps
+		string displayString
+
+	Functions
+		Constructor
+		virtual Destructor
+		virtual move
+		calcMovDir
+			Determines which direction to move
+		moveIsValid
+			Determines if that is a valid move
+		getTimeSteps
+		getType
+		getDisplayString
+
+Ant
+	Inherits from Critter
+	No new functions or variables, just uses:
+		constructor
+		destructor
+		move
+
+Grid
+	Variables
+	Critter*** ptrGrid
+	maxRow
+	maxCol
+
+	Functions
+	Constructor(row, col)
+	Destructor
+	Copy Constructor
+	Critter* getCritter(int row, int col)
+	void moveSpot(oldX, oldY, newX, newY)
+
+Simulation
+	Variables
+	Grid simGrid()
+
+	Constructor
+	Destructor
+	userStart
+	nextStep
+	antMove
+	antBreed
+	dBugMove
+	dBugBreed
+	dBugStarve
+	deterSurroundings
+	addCritter
+
+
