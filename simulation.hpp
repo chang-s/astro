@@ -11,6 +11,7 @@
 #define SIMULATION_HPP
 
 #include "grid.hpp"
+#include <vector>
 
 class Simulation
 {
@@ -20,6 +21,14 @@ class Simulation
 	    Grid grid1;
 	    int maxRow;
 	    int maxCol;
+
+	    struct Location
+	    {
+	    	int row = 0;
+	    	int col = 0;
+	    };
+
+	    std::vector<Location> activeAnts;
 
 	    //variables for checking surroundings
 	    const int UP_POS = 0;
@@ -35,6 +44,7 @@ class Simulation
 
 		void userStart();
 		void nextStep();
+		void updateAntVector();
 		void antMove();
 		void deterSurroundings(int row, int col, SpaceType *surrounds);
 		bool addCritter(int row, int col, SpaceType type);

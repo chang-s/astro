@@ -11,9 +11,11 @@ Parts of the simulation I actually implemented so far are just AntMove and Aging
 The Grid completely filled with Critter Pointers, and base critters just show up
 as empty spaces when we print/evaluate whether a spot is available to move to. 
 
+Then we find and record all the ants and their location in a vector of ants/locations. Then we move through all the ants in the vector. This is to prevent
+going through the entire 2D array and possibly doing double-moves.
+
 Once we find a spot to move to, we swap the Ant Pointer with the empty Critter 
-Pointer. We also flip a flag to record the Ant as having moved so we don't
-accidently move it twice if the Ant gets cycled again later in the array
+Pointer.
 
 For anyone wanting to test, try out the simulation userStart and nextSteps function.
 

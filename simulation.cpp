@@ -60,13 +60,41 @@ void Simulation::nextStep()
 
 	for (int i = 0; i < 2; i++)
 	{
-		Grid storedGrid = grid1;
+		//Grid storedGrid = grid1;
+		updateAntVector();
 		antMove();
 		grid1.displayGrid();
-		storedGrid.clearGrid();
-		ageAllCritters(SpaceType::ANT);
 	}
 		
+}
+
+/******************************************************************************
+	void findAllAnts()
+	Finds and stores the locations of each active ant
+*****************************************************************************/
+void Simulation::updateAntVector()
+{
+	//clears all Active Ants
+	for(size_t i = 0; i < activeAnts.size(); i++)
+	{
+		activeAnts.pop_back();
+	}
+
+
+	//finds and stores location for all active ants
+	for (int i = 0; i < maxRow; i++)
+	{
+		for(int j = 0; j < maxCol; j++)
+		{
+			if(grid1.getCritter(i, j)->getType() == SpaceType::ANT)
+			{
+				struct Location antLoc;
+				antLoc.row = i;
+				antLoc.col = j;
+				activeAnts.push_back(antLoc);
+			}
+		}
+	}
 }
 
 
@@ -79,75 +107,65 @@ void Simulation::antMove()
 {
 	SpaceType surrType[NUM_DIR];
 	DirMove antDir;
+	int curRow = 0;
+	int curCol = 0;
 	int newRow = 0;
 	int newCol = 0;
 
-	//go through whole grid looking for ants to move
-	for (int row = 0; row < maxRow; row++)
+	for(size_t i = 0; i < activeAnts.size(); i++)
 	{
-		for(int col = 0; col < maxCol; col++)
+		curRow = activeAnts[i].row;
+		curCol = activeAnts[i].col;
+
+		//determine surroundings around that ant
+		deterSurroundings(curRow, curCol, surrType);
+
+		//ant determines direction to move
+		antDir = grid1.getCritter(curRow, curCol)->move(surrType);
+
+		//get new coordinates based on move
+		switch(antDir)
 		{
-			//Check if critter is ant
-			if (grid1.getCritter(row, col)->getType() == SpaceType::ANT &&
-				grid1.getCritter(row, col)->getHasMoved() == false)
+			case DirMove::UP:
 			{
-				cout << "I found an Ant to move!" << endl;
-				//create the array of the position surrounding the ANT
-				deterSurroundings(row, col, surrType);
-
-				//ant determines direction to move
-				antDir = grid1.getCritter(row, col)->move(surrType);
-
-				//get new coordinates based on move
-				switch(antDir)
-				{
-					case DirMove::UP:
-					{
-						cout << "Moving up" << endl;
-						newRow = row - 1;
-						newCol = col;
-						break;
-					}
-
-					case DirMove::RIGHT:
-					{
-						cout << "Moving Right" << endl;
-						newRow = row;
-						newCol = col + 1;
-						break;
-					}
-
-					case DirMove::DOWN:
-					{
-						cout << "Moving Down" << endl;
-						newRow = row + 1;
-						newCol = col;
-						break;
-					}
-
-					case DirMove::LEFT:
-					{
-						cout << "Moving Left" << endl;
-						newRow = row;
-						newCol = col - 1;
-						break;
-					}
-
-					case DirMove::NO_MOVE:
-					{
-						cout << "Not Moving" << endl;
-						newRow = row;
-						newCol = col;
-						break;
-					}
-				}
-
-				//have grid update ant positions
-				grid1.moveCritter(row, col, newRow, newCol);
+				cout << "Moving up" << endl;
+				newRow = curRow - 1;
+				newCol = curCol;
+				break;
+			}
+			case DirMove::RIGHT:
+			{
+				cout << "Moving Right" << endl;
+				newRow = curRow;
+				newCol = curCol + 1;
+				break;
+			}
+			case DirMove::DOWN:
+			{
+				cout << "Moving Down" << endl;
+				newRow = curRow + 1;
+				newCol = curCol;
+				break;
+			}
+			case DirMove::LEFT:
+			{
+				cout << "Moving Left" << endl;
+				newRow = curRow;
+				newCol = curCol - 1;
+				break;
+			}
+			case DirMove::NO_MOVE:
+			{
+				cout << "Not Moving" << endl;
+				newRow = curRow;
+				newCol = curCol;
+				break;
 			}
 		}
+
+		//have grid update ant positions
+		grid1.moveCritter(curRow, curCol, newRow, newCol);
 	}
-	
 }
 
 /******************************************************************************
