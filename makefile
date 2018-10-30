@@ -1,34 +1,27 @@
-CXX=g++
-EXEC=predatorPreyGame
-SOURCES=predPrey.cpp game.cpp critter.cpp ant.cpp db.cpp menu.cpp utils.cpp
-OBJECTS=$(SOURCES:.cpp=.o)
-CXXFLAGS=-std=c++11 -c
-LFLAGS=-std=c++11 -g
-HEADERS=game.hpp critter.hpp ant.hpp db.hpp menu.hpp utils.hpp
+# variables
+CXX = g++
+CXXFLAGS = -std=c++0x
+CXXFLAGS += -Wall
+CXXFLAGS += -pedantic-errors
+CXXFLAGS += -g
 
-$(EXEC) : $(OBJECTS)
-	$(CXX) $(LFLAGS) $(OBJECTS) -o $(EXEC)
+OBJS = predPrey.o game.o critter.o ant.o db.o menu.o utils.o
+SRCS = predPrey.cpp game.cpp critter.cpp ant.cpp db.cpp menu.cpp utils.cpp
+HEADERS = game.hpp critter.hpp ant.hpp db.hpp menu.hpp utils.hpp
+EXEC = predatorPreyGame
 
-predPrey.o : $(HEADERS) predPrey.cpp
-	$(CXX) $(CXXFLAGS) $(HEADERS) predPrey.cpp
+# compilation
+$(EXEC): $(OBJS) $(HEADERS)
+	$(CXX) $(OBJS) -o $(EXEC)
 
-game.o : $(HEADERS) game.cpp
-	$(CXX) $(CXXFLAGS) $(HEADERS) game.cpp
+# generation of object files
+$(OBJS): $(SRCS)
+	$(CXX) $(CXXFLAGS) -c $(@:.o=.cpp)
 
-critter.o : $(HEADERS) critter.cpp
-	$(CXX) $(CXXFLAGS) $(HEADERS) critter.cpp
-
-ant.o : $(HEADERS) ant.cpp
-	$(CXX) $(CXXFLAGS) $(HEADERS) ant.cpp
-
-db.o : $(HEADERS) db.cpp
-	$(CXX) $(CXXFLAGS) $(HEADERS) db.cpp
-
-menu.o : menu.hpp menu.cpp
-	$(CXX) $(CXXFLAGS) $(HEADERS) menu.cpp
-
-utils.o : utils.hpp utils.cpp
-	$(CXX) $(CXXFLAGS) $(HEADERS) utils.cpp
-
-clean :
-	rm $(EXEC) $(OBJECTS) *.gch
+# cleaning
+clean:
+	rm *.o $(EXEC)
+	
+# zipping
+zip:
+	zip -D Group8.zip *.cpp *.hpp makefile
