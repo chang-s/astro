@@ -1,4 +1,3 @@
-
 # Format based on www.cs.bu.edu/teaching/cpp/writing-makefiles/
 # *****************************************************
 # G++ Variables
