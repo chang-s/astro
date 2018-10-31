@@ -268,49 +268,23 @@ Direction Game::dirSelect(Critter* &crit, bool breedCall) {
 		c = crit->getCol();
 	
 	//Directions available during a normal move
-	if (crit && !breedCall) {
+	if (crit && crit->getState() && !breedCall) {
 		//Directions a DB can move to eat ants
 		//Checks for boundaries
 		//Checks if something is occupying the space (to up or left) on new grid (other DB ate it)
 		//Checks if there's an ant around it; has to check oldGrid for ants (they haven't moved yet)
-		if (crit->getState()) { 
-			if (r > 0 && grid[r-1][c] && !(grid[r-1][c]->getState()))
-				dirVec.push_back(Direction::EATUP);
-			if (c < gridCols-1 && grid[r][c+1] && !(grid[r][c+1]->getState()))
-				dirVec.push_back(Direction::EATRIGHT);
-			if (r < gridRows-1 && grid[r+1][c] && !(grid[r+1][c]->getState()))
-				dirVec.push_back(Direction::EATDOWN);
-			if (c > 0 && grid[r][c-1] && !(grid[r][c-1]->getState()))
-				dirVec.push_back(Direction::EATLEFT);
-		}
+		if (r > 0 && grid[r-1][c] && !(grid[r-1][c]->getState()))
+			dirVec.push_back(Direction::EATUP);
+		if (c < gridCols-1 && grid[r][c+1] && !(grid[r][c+1]->getState()))
+			dirVec.push_back(Direction::EATRIGHT);
+		if (r < gridRows-1 && grid[r+1][c] && !(grid[r+1][c]->getState()))
+			dirVec.push_back(Direction::EATDOWN);
+		if (c > 0 && grid[r][c-1] && !(grid[r][c-1]->getState()))
+			dirVec.push_back(Direction::EATLEFT);
+	}
 
-		//Doodlebug moves without eating
-		//Check if there's a DB in the new grid in the desired space
-		//This wont need to check oldGrid for ants because they would have
-		//been detected in the above block
-		if (dirVec.empty() && crit->getState()) {
-			if (r > 0 && !grid[r-1][c])
-				dirVec.push_back(Direction::UP);
-			if (c < gridCols-1 && !grid[r][c+1])
-				dirVec.push_back(Direction::RIGHT);
-			if (r < gridRows-1 && !grid[r+1][c])
-				dirVec.push_back(Direction::DOWN);
-			if (c > 0 && !grid[r][c-1])
-				dirVec.push_back(Direction::LEFT);
-		//Ant moves (must account for doodlebug moves)
-		} else if (dirVec.empty() && !crit->getState()) {
-			if (r > 0 && !grid[r-1][c])
-				dirVec.push_back(Direction::UP);
-			if (c < gridCols-1 && !grid[r][c+1])
-				dirVec.push_back(Direction::RIGHT);
-			if (r < gridRows-1 && !grid[r+1][c])
-				dirVec.push_back(Direction::DOWN);
-			if (c > 0 && !grid[r][c-1])
-				dirVec.push_back(Direction::LEFT);
-		}
-
-	//Directions available during breeding
-	} else if (crit && breedCall) {
+	//Doodlebug moves without eating, Ant moves, DB/Ant breed
+	if (dirVec.empty() || breedCall) {
 		if (r > 0 && !grid[r-1][c])
 			dirVec.push_back(Direction::UP);
 		if (c < gridCols-1 && !grid[r][c+1])
