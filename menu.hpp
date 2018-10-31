@@ -24,7 +24,7 @@ class Menu {
 	protected:
 
 	public:
-		Menu(Game game);
+		Menu();
 		int mainMenu();
 		int endMenu();
 		int userSelect(int numOpts);

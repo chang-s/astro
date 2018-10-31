@@ -32,7 +32,8 @@ Game::Game() {
 
 
 Game::~Game() {
-	
+	deleteGrid(grid);
+	grid = NULL;	
 }
 
 //Allocates all of the elements for a grid and returns it
@@ -101,8 +102,7 @@ void Game::runSim() {
 		cout << "Step " << i << endl;
 		printGrid();
 	}
-	deleteGrid(grid);
-	grid = NULL;
+
 }
 
 void Game::move() {
