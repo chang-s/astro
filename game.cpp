@@ -123,23 +123,21 @@ void Game::move() {
 				newRow = tmpCrit->getRow();
 				newCol = tmpCrit->getCol();
 
-				//DANIEL - swap the spots
+				//delete the old spot
 				delete grid[r][c];
 				grid[r][c] = NULL;
-				grid[r][c] = grid[newRow][newCol];
-				grid[newRow][newCol] = tmpCrit;
-				grid[newRow][newCol]->setHasMoved(true);
 
-				//If doodlebug ate the ant, then delete the ant
-				if(grid[r][c] && !grid[r][c]->getState())
+				//If doodlebug eating an ant, then delete the ant
+				if(grid[newRow][newCol] && grid[newRow][newCol]->getState() == 0)
 				{
-					delete grid[r][c];
-					grid[r][c] = NULL;
+					delete grid[newRow][newCol];
+					grid[newRow][newCol] = NULL;
 				}
 				
-				//Set the DB from the old grid on the new grid
-				//grid[newRow][newCol] = tmpCrit;
-				
+				//Set the DB on the grid
+				grid[newRow][newCol] = tmpCrit;
+				grid[newRow][newCol]->setHasMoved(true);
+		
 				tmpCrit = NULL;
 
 			}
@@ -161,10 +159,11 @@ void Game::move() {
 				newRow = tmpCrit->getRow();
 				newCol = tmpCrit->getCol();
 
-				//DANIEL - swap the spots
+				//delete the old spot
 				delete grid[r][c];
 				grid[r][c] = NULL;
-				grid[r][c] = grid[newRow][newCol];
+
+				//Set the Ant on the grid
 				grid[newRow][newCol] = tmpCrit;
 				grid[newRow][newCol]->setHasMoved(true);
 
