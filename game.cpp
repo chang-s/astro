@@ -128,7 +128,7 @@ void Game::move() {
 				grid[r][c] = NULL;
 
 				//If doodlebug eating an ant, then delete the ant
-				if(grid[newRow][newCol] && grid[newRow][newCol]->getState() == 0)
+				if(grid[newRow][newCol] && !grid[newRow][newCol]->getState())
 				{
 					delete grid[newRow][newCol];
 					grid[newRow][newCol] = NULL;
