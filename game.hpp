@@ -18,14 +18,13 @@ class Game {
 			startNumAnts, 
 			startNumDB;
 
-		Critter*** oldGrid;
 		Critter*** grid;
 
 	protected:
 
 	public:
 		Game();
-//		~Game();
+		~Game();
 		void createGrid(Critter*** &newGrid);	
 		void deleteGrid(Critter*** &delGrid);
 		void populateGrid(Critter*** &tmp);

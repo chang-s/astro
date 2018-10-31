@@ -27,14 +27,14 @@ Game::Game() {
 	this->gridCols = 20;
 	this->startNumAnts = 99;
 	this->startNumDB = 5;
-	grid = oldGrid = NULL;
+	grid = NULL;
 }
-/*
+
+
 Game::~Game() {
-	deleteGrid(oldGrid);
-	deleteGrid(grid);
+	
 }
-*/
+
 //Allocates all of the elements for a grid and returns it
 void Game::createGrid(Critter*** &newGrid) {
 	newGrid = new Critter**[gridRows];
