@@ -14,6 +14,5 @@ int main() {
 	Menu predPreyMenu;
 	while (predPreyMenu.mainMenu()) {}
 
-	std::cout << "About to exit" << std::endl;
 	return 0;
 }
