@@ -2,7 +2,6 @@
  * ant.cpp
  */
 
-#include <iostream> //For access to NULL
 #include "critter.hpp"
 #include "ant.hpp"
 
@@ -13,7 +12,7 @@ Ant::~Ant() {
 
 //Ant Move
 Critter* Ant::move(Direction dir) {
-	Critter* crit = NULL;
+	Critter* crit = nullptr;
 
 	//Increment tracker variables
 	++this->critSteps;

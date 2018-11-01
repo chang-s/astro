@@ -2,7 +2,6 @@
  * db.cpp
  */
 
-#include <iostream> //For access to NULL
 #include "critter.hpp"
 #include "db.hpp"
 
@@ -11,7 +10,7 @@ DB::~DB() {
 }
 
 Critter* DB::move(Direction dir) {
-	Critter* crit = NULL;
+	Critter* crit = nullptr;
 
 	//Increment tracker variables
 	++this->critSteps;
