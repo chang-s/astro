@@ -84,7 +84,7 @@ Critter* DB::move(Direction dir) {
 
 //Will return NULL if breed would be out of bounds
 Critter* DB::breed(Direction dir) {
-	Critter* crit = NULL;
+	Critter* crit = nullptr;
 	//Only breed if more than 8 steps since last breed
 	if (this->lastBreed >= 8) {
 		//Breed a new critter in the specified direction

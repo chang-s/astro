@@ -60,7 +60,7 @@ Critter* Ant::move(Direction dir) {
 
 //Will return NULL if breed would be out of bounds
 Critter* Ant::breed(Direction dir) {
-	Critter* crit = NULL;
+	Critter* crit = nullptr;
 	//Only breed if more than 3 steps since last breed
 	if (this->lastBreed >= 3) {
 		//Breed a new critter in the specified direction 
