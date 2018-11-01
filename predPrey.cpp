@@ -11,10 +11,8 @@
 
 int main() {
 	srand(time(NULL));
-	Game predPreyGame;
-	Menu predPreyMenu(predPreyGame);
+	Menu predPreyMenu;
 	while (predPreyMenu.mainMenu()) {}
 
-	std::cout << "About to exit" << std::endl;
 	return 0;
 }

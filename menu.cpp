@@ -20,8 +20,7 @@ using std::string;
 using std::to_string;
 using std::vector;
 
-Menu::Menu(Game game) {
-	this->game = game;
+Menu::Menu(){
 	//Main menu options
 	genMainMenuOpts();
 	//End of game menu options
