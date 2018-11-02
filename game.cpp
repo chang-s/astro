@@ -27,13 +27,13 @@ Game::Game() {
 	this->gridCols = 20;
 	this->startNumAnts = 99;
 	this->startNumDB = 5;
-	grid = NULL;
+	grid = nullptr;
 }
 
 
 Game::~Game() {
 	deleteGrid(grid);
-	grid = NULL;	
+	grid = nullptr;	
 }
 
 //Allocates all of the elements for a grid and returns it
@@ -42,7 +42,7 @@ void Game::createGrid(Critter*** &newGrid) {
 	for (int i = 0 ; i < gridRows ; ++i) {
 		newGrid[i] = new Critter*[gridCols];
 		for (int j = 0 ; j < gridCols ; ++j) {
-			newGrid[i][j] = NULL;
+			newGrid[i][j] = nullptr;
 		}
 	}
 }
@@ -57,7 +57,7 @@ void Game::deleteGrid(Critter*** &delGrid) {
 		delete [] delGrid[i];
 	}
 	delete [] delGrid;	
-	delGrid = NULL;
+	delGrid = nullptr;
 }
 
 //Puts the starting numbers of each of the critters on the grid
@@ -92,7 +92,7 @@ void Game::runSim() {
 
 	for ( int i = 1 ; i < userSteps+1 ; ++i ) {
 		//oldGrid = grid; //Maintain grid's current state
-		//grid = NULL;
+		//grid = nullptr;
 		//createGrid(grid); //Create new grid for moves to take place on
 		move();
 		breed();
@@ -107,7 +107,7 @@ void Game::runSim() {
 
 void Game::move() {
 	Direction mvDir = Direction::NONE; //Generic variables
-	Critter* tmpCrit = NULL;
+	Critter* tmpCrit = nullptr;
 	int newCol = 0, newRow = 0;
 
 	//cout << "Doodlebugs begin to move." << endl;
@@ -125,20 +125,20 @@ void Game::move() {
 
 				//delete the old spot
 				delete grid[r][c];
-				grid[r][c] = NULL;
+				grid[r][c] = nullptr;
 
 				//If doodlebug eating an ant, then delete the ant
 				if(grid[newRow][newCol] && !grid[newRow][newCol]->getState())
 				{
 					delete grid[newRow][newCol];
-					grid[newRow][newCol] = NULL;
+					grid[newRow][newCol] = nullptr;
 				}
 				
 				//Set the DB on the grid
 				grid[newRow][newCol] = tmpCrit;
 				grid[newRow][newCol]->setHasMoved(true);
 		
-				tmpCrit = NULL;
+				tmpCrit = nullptr;
 
 			}
 		}
@@ -161,13 +161,13 @@ void Game::move() {
 
 				//delete the old spot
 				delete grid[r][c];
-				grid[r][c] = NULL;
+				grid[r][c] = nullptr;
 
 				//Set the Ant on the grid
 				grid[newRow][newCol] = tmpCrit;
 				grid[newRow][newCol]->setHasMoved(true);
 
-				tmpCrit = NULL;
+				tmpCrit = nullptr;
 			}
 		}
 	}
@@ -187,7 +187,7 @@ void Game::move() {
 //All critters have moved, use "grid" not "oldGrid"
 void Game::breed() {
 	Direction breedDir = Direction::NONE;
-	Critter* bredCrit = NULL;
+	Critter* bredCrit = nullptr;
 	int breedRow, breedCol;
 
 	//NOTE: Specs state that "The doodlebugs will move before the ants
@@ -218,7 +218,7 @@ void Game::breed() {
 					breedCol = bredCrit->getCol();
 					grid[breedRow][breedCol] = bredCrit; 
 				}
-				bredCrit = NULL;
+				bredCrit = nullptr;
 			}
 		}
 	}
@@ -240,7 +240,7 @@ void Game::breed() {
 					breedCol = bredCrit->getCol();
 					grid[breedRow][breedCol] = bredCrit; 
 				}
-				bredCrit = NULL;
+				bredCrit = nullptr;
 			}
 		}
 	}
@@ -254,7 +254,7 @@ void Game::starve() {
 			//Kill DB if 3 steps pass without eating
 			if (grid[r][c] && grid[r][c]->getState() >= 4) {
 				delete grid[r][c];
-				grid[r][c] = NULL;
+				grid[r][c] = nullptr;
 			}
 		}
 	}
