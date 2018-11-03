@@ -49,6 +49,10 @@ void Game::createGrid(Critter*** &newGrid) {
 
 //Deallocates all of the elements of a grid
 void Game::deleteGrid(Critter*** &delGrid) {
+	
+	//If no grid has been created
+	if (!grid) { return; }
+
 	for (int i = 0 ; i < gridRows ; ++i) {
 		for (int j = 0 ; j < gridCols ; ++j) {
 			if (delGrid[i][j])
