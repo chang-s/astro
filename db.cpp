@@ -1,14 +1,26 @@
-/*
- * db.cpp
- */
+/*******************************************************************
+** Program Name:    CS 162 - Group Project - Predator-Prey Sim
+** Author:          Group 8
+** Date:            November 4, 2018
+** Description:     Source file for Doodlebug class, which models
+**                  the predator in the predator-prey simulation.
+**                  This class is a derived class of Critter,
+**                  establshing an IS-A relationship with Critter 
+**                  (i.e. every Doodlebug IS-A Critter).
+*******************************************************************/
 
 #include "critter.hpp"
 #include "db.hpp"
 
-DB::~DB() {
-
-}
-
+/*******************************************************************
+** Description: Method that moves an doodlebug to one of the four
+**              adjacent cells and, if necessary, allows to eat an
+**              ant at that location
+** Arguments:   A Direction enum value that specifies where the 
+**              doodlebug object should move to
+** Returns:     A pointer to a Critter object holding a new
+**              doodlebug
+*******************************************************************/
 Critter* DB::move(Direction dir) {
 	Critter* crit = nullptr;
 
@@ -82,7 +94,16 @@ Critter* DB::move(Direction dir) {
 	return crit;
 }
 
-//Will return NULL if breed would be out of bounds
+/*******************************************************************
+** Description: Method that allows a doodlebug to breed if it meets
+**              the requirements for doing so
+** Arguments:   A Direction enum value that specifies where the 
+**              doodlebug object should breed on the board
+** Returns:     A pointer to a Critter object holding a new
+**              doodlebug
+**              note: the return value will be a null pointer if
+**              the breed would take the doodlebug out of bounds
+*******************************************************************/
 Critter* DB::breed(Direction dir) {
 	Critter* crit = nullptr;
 	//Only breed if more than 8 steps since last breed

@@ -1,5 +1,5 @@
 /*******************************************************************
-** Program Name:    CS 162 - Group Project - Predatory-Prey Sim
+** Program Name:    CS 162 - Group Project - Predator-Prey Sim
 ** Author:          Group 8
 ** Date:            November 4, 2018
 ** Description:     Header file for Ant class
@@ -16,9 +16,11 @@ class Ant : public Critter {
 	protected:
 
 	public:
+                // constructor that calls the Critter class constructor
 		Ant(int row, int col, int critSteps = 0, int lastBreed = 0, int state = 0) 
 		: Critter(row, col, critSteps, lastBreed, state) {};
-		~Ant();
+                // empty destructor
+		~Ant() {}
 		virtual Critter* move(Direction dir) override;
 		virtual Critter* breed(Direction dir) override;
 };

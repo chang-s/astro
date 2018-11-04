@@ -1,5 +1,5 @@
 /*******************************************************************
-** Program Name:    CS 162 - Group Project - Predatory-Prey Sim
+** Program Name:    CS 162 - Group Project - Predator-Prey Sim
 ** Author:          Group 8
 ** Date:            November 4, 2018
 ** Description:     Header file for Game class

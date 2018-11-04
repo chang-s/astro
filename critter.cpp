@@ -1,6 +1,13 @@
-/*
- * critter.cpp
- */
+/*******************************************************************
+** Program Name:    CS 162 - Group Project - Predator-Prey Sim
+** Author:          Group 8
+** Date:            November 4, 2018
+** Description:     Source file for Critter class. This class is an
+**                  abstract class, and in the context of this
+**                  program has two derived classes: Ant and 
+**                  Doodlebug. These classes represent the prey and
+**                  predator, respectively, in this simulation.
+*******************************************************************/
 
 #include "critter.hpp"
 
@@ -14,7 +21,7 @@ Critter::Critter(int row, int col, int critSteps, int lastBreed, int state) {
 	hasMoved = false;
 }
 
-//Destructor
+//Empty destructor
 Critter::~Critter() {
 
 }
