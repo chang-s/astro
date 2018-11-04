@@ -1,9 +1,11 @@
-/*********************************************************************
-**                          utils.cpp                               **
-** These utilities are a continually growing compilation of reusable**
-** pieces of code I've found useful. See the descriptions for each  **
-** individual function to see what they do.                         **
-*********************************************************************/
+/*******************************************************************
+** Program Name:    CS 162 - Group Project - Predator-Prey Sim
+** Author:          Group 8
+** Date:            November 4, 2018
+** Description:     Source file for Utils class that contains a 
+**                  compilation of reusables pieces of code,
+**                  including methods for input validation.
+*******************************************************************/
 
 #include "utils.hpp"
 #include <iostream>
@@ -26,8 +28,15 @@ using std::ofstream;
 using std::time;
 using std::srand;
 
-//Checks if the string is a float and if it's within 
-//a certain value range.
+/*******************************************************************
+** Description: Method that checks if a string is a float and if it
+**              is within a certain value range
+** Arguments:   An input string, a reference to a float, two floats
+**              holding the minimum and maximum values, and two
+**              booleans indicating whether the value can equal the
+**              min or max value
+** Returns:     Return true if valid float; false otherwise
+*******************************************************************/
 bool floatCheck(string &str, float &retFloat, float MIN_NUM, float MAX_NUM, bool canEqlMin, bool canEqlMax)
 {
 	bool badVal = false;
@@ -60,8 +69,15 @@ bool floatCheck(string &str, float &retFloat, float MIN_NUM, float MAX_NUM, bool
 	return true;
 }
 
-//Checks if the string is an integer and if it's within 
-//a certain value range.
+/*******************************************************************
+** Description: Method that checks if a string is an int and if it
+**              is within a certain value range
+** Arguments:   An input string, a reference to a int, two ints
+**              holding the minimum and maximum values, and two
+**              booleans indicating whether the value can equal the
+**              min or max value
+** Returns:     Return true if valid int; false otherwise
+*******************************************************************/
 bool intCheck(string &str, int &retInt, int MIN_NUM, int MAX_NUM, bool canEqlMin, bool canEqlMax)
 {
 	bool badVal = false;
@@ -94,6 +110,12 @@ bool intCheck(string &str, int &retInt, int MIN_NUM, int MAX_NUM, bool canEqlMin
 	return true;
 }
 
+/*******************************************************************
+** Description: Method that prompts a user with a yes/no question
+**              and obtains a valid response
+** Arguments:   A string holding the question
+** Returns:     Return true if "yes"; false if "no"
+*******************************************************************/
 bool yesOrNo(string question) {
 	string response = "";
 	do {
@@ -105,7 +127,12 @@ bool yesOrNo(string question) {
 	else { return false; }
 }
 
-//Formatting and display function; prints a border
+/*******************************************************************
+** Description: Method that prints a horizontal border
+** Arguments:   An int indicating how wide the border should be and
+*               a char indicating the character to print
+** Returns:     No return value
+*******************************************************************/
 void printHorizontalBorder(int width, char spacer) {
 	cout << setfill(spacer) << setw(width) << "" << endl;
 	cout << setfill(' ');
