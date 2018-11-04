@@ -1,6 +1,6 @@
 /*******************************************************************
 ** Program Name:    CS 162 - Group Project - Predator-Prey Sim
-** Author:          Group 8
+** Author:          Group 8 (Astro) 
 ** Date:            November 4, 2018
 ** Description:     Source file for Critter class. This class is an
 **                  abstract class, and in the context of this
@@ -11,7 +11,7 @@
 
 #include "critter.hpp"
 
-//Overloaded constructor
+// Overloaded constructor
 Critter::Critter(int row, int col, int critSteps, int lastBreed, int state) {
 	this->row = row;
 	this->col = col;
@@ -19,9 +19,4 @@ Critter::Critter(int row, int col, int critSteps, int lastBreed, int state) {
 	this->lastBreed = lastBreed;
 	this->state = state;
 	hasMoved = false;
-}
-
-//Empty destructor
-Critter::~Critter() {
-
 }
