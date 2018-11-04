@@ -1,6 +1,9 @@
-/*
- * ant.hpp
- */
+/*******************************************************************
+** Program Name:    CS 162 - Group Project - Predatory-Prey Sim
+** Author:          Group 8
+** Date:            November 4, 2018
+** Description:     Header file for Ant class
+*******************************************************************/
 
 #ifndef ANT_HPP
 #define ANT_HPP

@@ -1,6 +1,9 @@
-/*
- * game.hpp
- */
+/*******************************************************************
+** Program Name:    CS 162 - Group Project - Predatory-Prey Sim
+** Author:          Group 8
+** Date:            November 4, 2018
+** Description:     Header file for Game class
+*******************************************************************/
 
 #ifndef GAME_HPP
 #define GAME_HPP
@@ -13,10 +16,10 @@
 class Game {
 	private:
 		int userSteps, 
-			gridRows, 
-			gridCols, 
-			startNumAnts, 
-			startNumDB;
+		    gridRows, 
+		    gridCols, 
+		    startNumAnts, 
+		    startNumDB;
 
 		Critter*** grid;
 

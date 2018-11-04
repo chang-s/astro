@@ -1,9 +1,12 @@
-/**************************************************************************
-*                                menu.hpp
-* The menu header file declares the Menu class and the mainMenu function
-* and its options. It also contains a vector with all of the menu options.
-*
-**************************************************************************/
+/*******************************************************************
+** Program Name:    CS 162 - Group Project - Predatory-Prey Sim
+** Author:          Group 8
+** Date:            November 4, 2018
+** Description:     Header file for Menu class that declares the
+**                  Menu class and the mainMenu function and its
+**                  options. It also contains a vector with all
+**                  the menu options.
+*******************************************************************/
 
 #ifndef MENU_HPP
 #define MENU_HPP

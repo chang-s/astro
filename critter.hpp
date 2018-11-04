@@ -1,6 +1,9 @@
-/*
- * critter.hpp
- */
+/*******************************************************************
+** Program Name:    CS 162 - Group Project - Predatory-Prey Sim
+** Author:          Group 8
+** Date:            November 4, 2018
+** Description:     Header file for Critter class
+*******************************************************************/
 
 #ifndef CRITTER_HPP
 #define CRITTER_HPP
