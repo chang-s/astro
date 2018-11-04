@@ -1,16 +1,24 @@
-/*
- * ant.cpp
- */
+/*******************************************************************
+** Program Name:    CS 162 - Group Project - Predator-Prey Sim
+** Author:          Group 8
+** Date:            November 4, 2018
+** Description:     Source file for Ant class, which models the
+**                  prey in the predator-prey simulation. This 
+**                  class is a derived class of Critter, establshing
+**                  an IS-A relationship with Critter (i.e. every
+**                  Ant IS-A Critter).
+*******************************************************************/
 
 #include "critter.hpp"
 #include "ant.hpp"
 
-//Destructor
-Ant::~Ant() {
-
-}
-
-//Ant Move
+/*******************************************************************
+** Description: Method that moves an ant to one of the four
+**              adjacent cells
+** Arguments:   A Direction enum value that specifies where the 
+**              new ant object should be placed on the board
+** Returns:     A pointer to a Critter object holding a new ant
+*******************************************************************/
 Critter* Ant::move(Direction dir) {
 	Critter* crit = nullptr;
 
@@ -58,7 +66,15 @@ Critter* Ant::move(Direction dir) {
 	return crit;
 }
 
-//Will return NULL if breed would be out of bounds
+/*******************************************************************
+** Description: Method that allows an ant to breed if it meets the
+**              requirements for doing so
+** Arguments:   A Direction enum value that specifies where the 
+**              ant object should breed on the board
+** Returns:     A pointer to a Critter object holding a new ant;
+**              note: the return value will be a null pointer if
+**              the breed would take the ant out of bounds
+*******************************************************************/
 Critter* Ant::breed(Direction dir) {
 	Critter* crit = nullptr;
 	//Only breed if more than 3 steps since last breed

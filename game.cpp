@@ -1,6 +1,10 @@
-/*
- * game.cpp
- */
+/*******************************************************************
+** Program Name:    CS 162 - Group Project - Predator-Prey Sim
+** Author:          Group 8
+** Date:            November 4, 2018
+** Description:     Source file for Game class, which manges the
+**                  logic of the predator-prey simulation.
+*******************************************************************/
 
 #include <iostream>
 #include <iomanip>
@@ -20,23 +24,36 @@ using std::left;
 using std::vector;
 using std::rand;
 
-//Initial menu values
+/*******************************************************************
+** Description: Constructor that creates a new game object 
+** Arguments:   No arguments
+** Returns:     No return value
+*******************************************************************/
 Game::Game() { 
 	this->userSteps = 100;
 	this->gridRows = 20;
 	this->gridCols = 20;
-	this->startNumAnts = 99;
+	this->startNumAnts = 100;
 	this->startNumDB = 5;
 	grid = nullptr;
 }
 
-
+/*******************************************************************
+** Description: Destructor that frees the memory allocated for the
+**              grid
+** Arguments:   No arguments
+** Returns:     No return value
+*******************************************************************/
 Game::~Game() {
 	deleteGrid(grid);
 	grid = nullptr;	
 }
 
-//Allocates all of the elements for a grid and returns it
+/*******************************************************************
+** Description: Method that allocates the memory for the grid
+** Arguments:   A pointer to a 2D array of Critter pointers
+** Returns:     No return value
+*******************************************************************/
 void Game::createGrid(Critter*** &newGrid) {
 	newGrid = new Critter**[gridRows];
 	for (int i = 0 ; i < gridRows ; ++i) {
@@ -47,7 +64,11 @@ void Game::createGrid(Critter*** &newGrid) {
 	}
 }
 
-//Deallocates all of the elements of a grid
+/*******************************************************************
+** Description: Method that frees the memory of the grid
+** Arguments:   A pointer to a 2D array of Critter pointers
+** Returns:     No return value
+*******************************************************************/
 void Game::deleteGrid(Critter*** &delGrid) {
 	
 	//If no grid has been created
@@ -64,7 +85,12 @@ void Game::deleteGrid(Critter*** &delGrid) {
 	delGrid = nullptr;
 }
 
-//Puts the starting numbers of each of the critters on the grid
+/*******************************************************************
+** Description: Method that fills the grid with Ant and Doodlebug
+**              objects
+** Arguments:   A pointer to a 2D array of Critter pointers
+** Returns:     No return value
+*******************************************************************/
 void Game::populateGrid(Critter*** &tmp) {
 	int r, c; //Generic variables for coordinates
 	
@@ -87,6 +113,11 @@ void Game::populateGrid(Critter*** &tmp) {
 	}
 }
 
+/*******************************************************************
+** Description: Method that begins the predator-prey simulation
+** Arguments:   No arguments
+** Returns:     No return value
+*******************************************************************/
 void Game::runSim() {
 	//Set up initial state of grids
 	createGrid(grid);
@@ -109,6 +140,11 @@ void Game::runSim() {
 
 }
 
+/*******************************************************************
+** Description: Method that moves the doodlebugs then moves the ants
+** Arguments:   No arguments
+** Returns:     No return value
+*******************************************************************/
 void Game::move() {
 	Direction mvDir = Direction::NONE; //Generic variables
 	Critter* tmpCrit = nullptr;
@@ -188,7 +224,11 @@ void Game::move() {
 
 }
 
-//All critters have moved, use "grid" not "oldGrid"
+/*******************************************************************
+** Description: Method that allows the doodlebugs and ants to breed
+** Arguments:   No arguments
+** Returns:     No return value
+*******************************************************************/
 void Game::breed() {
 	Direction breedDir = Direction::NONE;
 	Critter* bredCrit = nullptr;
@@ -250,7 +290,12 @@ void Game::breed() {
 	}
 }
 
-//Starves doodlebugs that reach 3 steps
+/*******************************************************************
+** Description: Method that removes doodlebugs if they have starved,
+**              i.e. not eaten an ant in the alloted time
+** Arguments:   No arguments
+** Returns:     No return value
+*******************************************************************/
 void Game::starve() {
 	//cout << "Doodlebugs begin to starve." << endl;
 	for ( int r = 0 ; r < gridRows ; ++r ) {
@@ -264,7 +309,13 @@ void Game::starve() {
 	}
 }
 
-//Checks directions the critter can move that arent out of bounds or already occupied
+/*******************************************************************
+** Description: Method that checks the directions a critter can move
+**              that are in bounds and not already occupied
+** Arguments:   A pointer to a 2D array of Critter pointers and
+**              a boolean that tracks breeding of a Critter
+** Returns:     A Direction enum value indicating direction to move
+*******************************************************************/
 Direction Game::dirSelect(Critter* &crit, bool breedCall) {
 	vector<Direction> dirVec;
 	int r = crit->getRow(),
@@ -305,6 +356,11 @@ Direction Game::dirSelect(Critter* &crit, bool breedCall) {
 	return (dirVec[rand() % dirVec.size()]);
 }
 
+/*******************************************************************
+** Description: Method that prins the current state of the grid
+** Arguments:   No arguments
+** Returns:     No return values
+*******************************************************************/
 void Game::printGrid() {
 	printHorizontalBorder(2*gridCols+2, '_');
 	for (int i = 0; i < gridRows ; ++i) {

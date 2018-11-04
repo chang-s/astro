@@ -1,9 +1,12 @@
-/*
- * menu.cpp
- * The Menu class implementation file describes the implementation of the
- * mainMenu function. 
- *
- */
+/*******************************************************************
+** Program Name:    CS 162 - Group Project - Predator-Prey Sim
+** Author:          Group 8
+** Date:            November 4, 2018
+** Description:     Source file for Menu class that declares the
+**                  Menu class and the mainMenu function and its
+**                  options. It also contains a vector with all
+**                  the menu options.
+*******************************************************************/
 
 #include <vector>
 #include <string>
@@ -20,6 +23,11 @@ using std::string;
 using std::to_string;
 using std::vector;
 
+/*******************************************************************
+** Description: Constructor that creates a new menu object 
+** Arguments:   No arguments
+** Returns:     No return value
+*******************************************************************/
 Menu::Menu(){
 	//Main menu options
 	genMainMenuOpts();
@@ -28,7 +36,13 @@ Menu::Menu(){
 	endMenuOpts.push_back("Exit the program");
 }
 
-//Presents the user with a menu containing various options
+/*******************************************************************
+** Description: Method that presents the user with a menu for the
+**              simulation
+** Arguments:   No arguments
+** Returns:     An integer representing the exit code of the method
+**              once the simulation is over
+*******************************************************************/
 int Menu::mainMenu() {
 	//Prints the main menu until the user selects to play or quit
 	string selStr = "";
@@ -104,7 +118,13 @@ int Menu::mainMenu() {
 	}
 }
 
-//Prompts the user to either play again or quit
+/*******************************************************************
+** Description: Method that prompts the user to either play again or
+**              quit
+** Arguments:   No arguments
+** Returns:     An integer reflecting the user's choice to either
+**              continue or quit
+*******************************************************************/
 int Menu::endMenu() {
 	while (true) {
 		switch (printMenuOpts(endMenuOpts)) {
@@ -114,7 +134,13 @@ int Menu::endMenu() {
 	}
 }
 
-//Prompt the user to select one of the options and return it
+/*******************************************************************
+** Description: Method that prompts the user to select one of the
+**              menu options
+** Arguments:   An integer holding the value of the number of
+**              options in the menu
+** Returns:     An integer reflecting the user's choice
+*******************************************************************/
 int Menu::userSelect(int numOpts) {
 	int sel = 0; string selStr;
 	do {
@@ -124,7 +150,13 @@ int Menu::userSelect(int numOpts) {
 	return sel;
 }
 
-//Cycle through the menu options and print out a numbered list
+/*******************************************************************
+** Description: Method that iterates over the menu options and
+**              displays a numbered list of the options
+** Arguments:   A vector of strings holding the options for the menu
+** Returns:     An integer reflecting the user's menu selection
+**              obtained by calling the userSelect() method
+*******************************************************************/
 int Menu::printMenuOpts(vector<string> &vect){
 	int i = 0;
 	for (string &opt : vect) {
@@ -133,6 +165,13 @@ int Menu::printMenuOpts(vector<string> &vect){
 	return userSelect(i);
 }
 
+/*******************************************************************
+** Description: Method that adds the relevant options to the vector
+**              of strings used for the predator-prey simulation
+**              menu
+** Arguments:   No arguments
+** Returns:     No return values
+*******************************************************************/
 void Menu::genMainMenuOpts() {
 	vector<string>().swap(mainMenuOpts); //Clean out the vector
 	mainMenuOpts.push_back("Set Number of Steps: " + to_string(game.getSteps()));
