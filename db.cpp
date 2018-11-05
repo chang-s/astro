@@ -1,6 +1,6 @@
 /*******************************************************************
 * Program Name:    CS 162 - Group Project - Predator-Prey Sim
-* Author:          Group 8
+* Author:          Group 8 (Astro)
 * Date:            November 4, 2018
 * Description:     Source file for Doodlebug class, which models
 *                  the predator in the predator-prey simulation.
