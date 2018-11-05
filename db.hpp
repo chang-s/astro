@@ -1,8 +1,8 @@
 /*******************************************************************
-** Program Name:    CS 162 - Group Project - Predator-Prey Sim
-** Author:          Group 8 (Astro)
-** Date:            November 4, 2018
-** Description:     Header file for Doodlebug class
+* Program Name:    CS 162 - Group Project - Predator-Prey Sim
+* Author:          Group 8 (Astro)
+* Date:            November 4, 2018
+* Description:     Header file for Doodlebug class
 *******************************************************************/
 
 #ifndef DB_HPP
