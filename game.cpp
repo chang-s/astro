@@ -127,7 +127,7 @@ void Game::runSim() {
 	for ( int i = 1 ; i < userSteps+1 ; ++i ) {
 		move();
 		breed();
-		starve()
+		starve();
 		cout << "Step " << i << endl;
 		printGrid();
 	}

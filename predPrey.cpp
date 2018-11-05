@@ -29,7 +29,7 @@ int main() {
 		<< "This is an acknowledgement that this\n"
 		<< "project includes extra credit tasks such\n"
 		<< "as options to set the size of the grid,\n"
-		<< "number of ants, and number of doodlebugs.";
+		<< "number of ants, and number of doodlebugs.\n";
 	printHorizontalBorder();
         std::cout << "Press enter to begin the simulation...";
         std::cin.get();
