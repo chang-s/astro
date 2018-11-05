@@ -1,10 +1,10 @@
 /*******************************************************************
-** Program Name:    CS 162 - Group Project - Predator-Prey Sim
-** Author:          Group 8
-** Date:            November 4, 2018
-** Description:     Header file for Utils class that contains a 
-**                  compilation of reusables pieces of code,
-**                  including methods for input validation.
+* Program Name:    CS 162 - Group Project - Predator-Prey Sim
+* Author:          Group 8 (Astro)
+* Date:            November 4, 2018
+* Description:     Header file for Utils class that contains a 
+*                  compilation of reusables pieces of code,
+*                  including methods for input validation.
 *******************************************************************/
 
 #ifndef UTILS_HPP
