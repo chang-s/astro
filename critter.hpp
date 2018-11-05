@@ -1,8 +1,8 @@
 /*******************************************************************
-** Program Name:    CS 162 - Group Project - Predator-Prey Sim
-** Author:          Group 8
-** Date:            November 4, 2018
-** Description:     Header file for Critter class
+* Program Name:    CS 162 - Group Project - Predator-Prey Sim
+* Author:          Group 8 (Astro)
+* Date:            November 4, 2018
+* Description:     Header file for Critter class
 *******************************************************************/
 
 #ifndef CRITTER_HPP
