@@ -1,8 +1,8 @@
 /*******************************************************************
-** Program Name:    CS 162 - Group Project - Predator-Prey Sim
-** Author:          Group 8
-** Date:            November 4, 2018
-** Description:     Header file for Game class
+* Program Name:    CS 162 - Group Project - Predator-Prey Sim
+* Author:          Group 8 (Astro)
+* Date:            November 4, 2018
+* Description:     Header file for Game class
 *******************************************************************/
 
 #ifndef GAME_HPP
@@ -10,8 +10,8 @@
 
 #include "critter.hpp"
 
-//NOTE: Max grid size will be 99x99, min grid size will be
-//based on the number of doodlebugs+ants 
+// NOTE: Max grid size will be 99x99, min grid size will be
+// based on the number of doodlebugs + ants 
 
 class Game {
 	private:
@@ -38,7 +38,7 @@ class Game {
 		Direction dirSelect(Critter* &crit, bool breedCall = false);
 		void printGrid();
 		
-		//Get and Set functions
+		// Get and Set functions
 		int getSteps() { return this->userSteps; } 
 		int getGridRows() { return this->gridRows; }
 		int getGridCols() { return this->gridCols; }

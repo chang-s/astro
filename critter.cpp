@@ -20,3 +20,9 @@ Critter::Critter(int row, int col, int critSteps, int lastBreed, int state) {
 	this->state = state;
 	hasMoved = false;
 }
+
+// Empty destructor
+Critter::~Critter() {
+
+}
+

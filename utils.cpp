@@ -1,10 +1,10 @@
 /*******************************************************************
-** Program Name:    CS 162 - Group Project - Predator-Prey Sim
-** Author:          Group 8
-** Date:            November 4, 2018
-** Description:     Source file for Utils class that contains a 
-**                  compilation of reusables pieces of code,
-**                  including methods for input validation.
+* Program Name:    CS 162 - Group Project - Predator-Prey Sim
+* Author:          Group 8 (Astro)
+* Date:            November 4, 2018
+* Description:     Source file for Utils class that contains a 
+*                  compilation of reusables pieces of code,
+*                  including methods for input validation.
 *******************************************************************/
 
 #include "utils.hpp"
@@ -29,13 +29,13 @@ using std::time;
 using std::srand;
 
 /*******************************************************************
-** Description: Method that checks if a string is a float and if it
-**              is within a certain value range
-** Arguments:   An input string, a reference to a float, two floats
-**              holding the minimum and maximum values, and two
-**              booleans indicating whether the value can equal the
-**              min or max value
-** Returns:     Return true if valid float; false otherwise
+* Description: Method that checks if a string is a float and if it
+*              is within a certain value range
+* Arguments:   An input string, a reference to a float, two floats
+*              holding the minimum and maximum values, and two
+*              booleans indicating whether the value can equal the
+*              min or max value
+* Returns:     Return true if valid float; false otherwise
 *******************************************************************/
 bool floatCheck(string &str, float &retFloat, float MIN_NUM, float MAX_NUM, bool canEqlMin, bool canEqlMax)
 {
@@ -70,13 +70,13 @@ bool floatCheck(string &str, float &retFloat, float MIN_NUM, float MAX_NUM, bool
 }
 
 /*******************************************************************
-** Description: Method that checks if a string is an int and if it
-**              is within a certain value range
-** Arguments:   An input string, a reference to a int, two ints
-**              holding the minimum and maximum values, and two
-**              booleans indicating whether the value can equal the
-**              min or max value
-** Returns:     Return true if valid int; false otherwise
+* Description: Method that checks if a string is an int and if it
+*              is within a certain value range
+* Arguments:   An input string, a reference to a int, two ints
+*              holding the minimum and maximum values, and two
+*              booleans indicating whether the value can equal the
+*              min or max value
+* Returns:     Return true if valid int; false otherwise
 *******************************************************************/
 bool intCheck(string &str, int &retInt, int MIN_NUM, int MAX_NUM, bool canEqlMin, bool canEqlMax)
 {
@@ -111,10 +111,10 @@ bool intCheck(string &str, int &retInt, int MIN_NUM, int MAX_NUM, bool canEqlMin
 }
 
 /*******************************************************************
-** Description: Method that prompts a user with a yes/no question
-**              and obtains a valid response
-** Arguments:   A string holding the question
-** Returns:     Return true if "yes"; false if "no"
+* Description: Method that prompts a user with a yes/no question
+*              and obtains a valid response
+* Arguments:   A string holding the question
+* Returns:     Return true if "yes"; false if "no"
 *******************************************************************/
 bool yesOrNo(string question) {
 	string response = "";
@@ -128,10 +128,10 @@ bool yesOrNo(string question) {
 }
 
 /*******************************************************************
-** Description: Method that prints a horizontal border
-** Arguments:   An int indicating how wide the border should be and
-*               a char indicating the character to print
-** Returns:     No return value
+* Description: Method that prints a horizontal border
+* Arguments:   An int indicating how wide the border should be and
+*              a char indicating the character to print
+* Returns:     No return value
 *******************************************************************/
 void printHorizontalBorder(int width, char spacer) {
 	cout << setfill(spacer) << setw(width) << "" << endl;

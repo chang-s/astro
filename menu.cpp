@@ -1,11 +1,11 @@
 /*******************************************************************
-** Program Name:    CS 162 - Group Project - Predator-Prey Sim
-** Author:          Group 8
-** Date:            November 4, 2018
-** Description:     Source file for Menu class that declares the
-**                  Menu class and the mainMenu function and its
-**                  options. It also contains a vector with all
-**                  the menu options.
+* Program Name:    CS 162 - Group Project - Predator-Prey Sim
+* Author:          Group 8 (Astro)
+* Date:            November 4, 2018
+* Description:     Source file for Menu class that declares the
+*                  Menu class and the mainMenu function and its
+*                  options. It also contains a vector with all
+*                  the menu options.
 *******************************************************************/
 
 #include <vector>
@@ -24,27 +24,27 @@ using std::to_string;
 using std::vector;
 
 /*******************************************************************
-** Description: Constructor that creates a new menu object 
-** Arguments:   No arguments
-** Returns:     No return value
+* Description: Constructor that creates a new menu object 
+* Arguments:   No arguments
+* Returns:     No return value
 *******************************************************************/
 Menu::Menu(){
-	//Main menu options
+	// Main menu options
 	genMainMenuOpts();
-	//End of game menu options
+	// End of game menu options
 	endMenuOpts.push_back("Run again");
 	endMenuOpts.push_back("Exit the program");
 }
 
 /*******************************************************************
-** Description: Method that presents the user with a menu for the
-**              simulation
-** Arguments:   No arguments
-** Returns:     An integer representing the exit code of the method
-**              once the simulation is over
+* Description: Method that presents the user with a menu for the
+*              simulation
+* Arguments:   No arguments
+* Returns:     An integer representing the exit code of the method
+*              once the simulation is over
 *******************************************************************/
 int Menu::mainMenu() {
-	//Prints the main menu until the user selects to play or quit
+	// Prints the main menu until the user selects to play or quit
 	string selStr = "";
 	int sel = 0; 
 	while (true) {
@@ -59,7 +59,7 @@ int Menu::mainMenu() {
 				break;
 			}
 
-			//Set number of grid rows
+			// Set number of grid rows
 			case 2 : { 
 				int minRows = (game.getStartNumAnts() + game.getStartNumDB())/game.getGridCols()+1;
 				do {
@@ -70,7 +70,7 @@ int Menu::mainMenu() {
 				break;
 			}
 
-			//Set number of grid cols
+			// Set number of grid cols
 			case 3 : { 
 				int minCols = (game.getStartNumAnts() + game.getStartNumDB())/game.getGridRows()+1;
 				do {
@@ -92,7 +92,7 @@ int Menu::mainMenu() {
 				break;
 			}
 
-			//Set number of DBs
+			// Set number of doodlebugs
 			case 5 : {
 				int maxDB = game.getGridRows() * game.getGridCols() - game.getStartNumAnts();
 				do {
@@ -103,14 +103,14 @@ int Menu::mainMenu() {
 				break;
 			}
 
-			//Run the simulation
+			// Run the simulation
 			case 6 : 
 				game.runSim();
 				if (endMenu() == 2) { return 0; }
 				else { return 1; }
 				cout << "Done with this round!" <<endl;
 
-			//Exit the simulation
+			// Exit the simulation
 			case 7 : 
 				return 0;
 		}
@@ -119,11 +119,11 @@ int Menu::mainMenu() {
 }
 
 /*******************************************************************
-** Description: Method that prompts the user to either play again or
-**              quit
-** Arguments:   No arguments
-** Returns:     An integer reflecting the user's choice to either
-**              continue or quit
+* Description: Method that prompts the user to either play again or
+*              quit
+* Arguments:   No arguments
+* Returns:     An integer reflecting the user's choice to either
+*              continue or quit
 *******************************************************************/
 int Menu::endMenu() {
 	while (true) {
@@ -135,11 +135,11 @@ int Menu::endMenu() {
 }
 
 /*******************************************************************
-** Description: Method that prompts the user to select one of the
-**              menu options
-** Arguments:   An integer holding the value of the number of
-**              options in the menu
-** Returns:     An integer reflecting the user's choice
+* Description: Method that prompts the user to select one of the
+*              menu options
+* Arguments:   An integer holding the value of the number of
+*              options in the menu
+* Returns:     An integer reflecting the user's choice
 *******************************************************************/
 int Menu::userSelect(int numOpts) {
 	int sel = 0; string selStr;
@@ -151,11 +151,11 @@ int Menu::userSelect(int numOpts) {
 }
 
 /*******************************************************************
-** Description: Method that iterates over the menu options and
-**              displays a numbered list of the options
-** Arguments:   A vector of strings holding the options for the menu
-** Returns:     An integer reflecting the user's menu selection
-**              obtained by calling the userSelect() method
+* Description: Method that iterates over the menu options and
+*              displays a numbered list of the options
+* Arguments:   A vector of strings holding the options for the menu
+* Returns:     An integer reflecting the user's menu selection
+*              obtained by calling the userSelect() method
 *******************************************************************/
 int Menu::printMenuOpts(vector<string> &vect){
 	int i = 0;
@@ -166,11 +166,11 @@ int Menu::printMenuOpts(vector<string> &vect){
 }
 
 /*******************************************************************
-** Description: Method that adds the relevant options to the vector
-**              of strings used for the predator-prey simulation
-**              menu
-** Arguments:   No arguments
-** Returns:     No return values
+* Description: Method that adds the relevant options to the vector
+*              of strings used for the predator-prey simulation
+*              menu
+* Arguments:   No arguments
+* Returns:     No return values
 *******************************************************************/
 void Menu::genMainMenuOpts() {
 	vector<string>().swap(mainMenuOpts); //Clean out the vector

@@ -1,7 +1,6 @@
 # variables
 CXX = g++
 CXXFLAGS = -std=c++0x
-# CXXFLAGS += -Wall	# suppress warnings
 CXXFLAGS += -pedantic-errors
 CXXFLAGS += -g
 
